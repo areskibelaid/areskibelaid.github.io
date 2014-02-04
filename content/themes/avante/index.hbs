@@ -45,20 +45,26 @@
 				<main id="main" class="main-content" role="main">
 					{{! Our Loop }}
 					{{#foreach posts}}
-						<a href="{{url}}" class="post-item">
+
 							<article class="{{post_class}}">
-								<div class="entry">
-						      <div class="featured-img">
-						      	{{content words="0"}}
-										<img class="no-img" src="/assets/images/no-img.jpg" alt="">
+							  <div class="entry">
+							    <a href="{{url}}" class="post-item"><h4>{{{title}}} <span class="post-time">({{date published_at format="MMMM DD, YYYY"}}</span>)</h4></a>
+								{{excerpt words="30"}}
+
+							    <a href="{{url}}" class="post-item">
+							      <div class="featured-img">
+							        {{content words="0"}}
+											<img class="no-img" src="/assets/images/no-img.jpg" alt="">
+							      </div>
+
+							      <div class="caption">
+							      	<h3>{{{title}}}</h3>
+							      	<span class="post-time">{{date published_at}}</span>
+							      </div>
+							    </a>
 						      </div>
-						      <div class="caption">
-						      	<h3>{{{title}}}</h3>
-						      	<span class="post-time">{{date published_at timeago="true"}}</span>
-						      </div>
-						    </div>
 							</article>
-						</a>
+
 					{{/foreach}}
 				</main>
 			</div>
