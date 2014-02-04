@@ -1,0 +1,68 @@
+{{!< default}}
+
+{{> menu}}
+
+<div id="main-wrapper">
+	{{! Header }}
+	<header id="header">
+		<button id="showLeft"><i class="icon-flickr"></i></button>
+		<section data-height="420" class="heading-bg" {{#if @blog.cover}}style="background-image: url({{@blog.cover}})"{{/if}}>
+
+			<section class="inner">
+				<div class="head-content">
+					<div class="centered">
+						{{#if @blog.logo}}<a class="blog-logo" href="{{@blog.url}}"><img width="120" src="{{@blog.logo}}" alt="Blog Logo" /></a>{{/if}}
+			  		<h1 class="blog-title"><a href="/">{{@blog.title}}</a></h1>
+			  		<p class="blog-description">{{@blog.description}}</p>
+					</div>
+				</div>
+		  </section>
+
+		</section>
+	</header>
+
+	{{! {{> links}}
+
+	<div class="container-wrap">
+		{{! Filters }}
+		<div id="filter-wrap" class="sticky-menu">
+			<div class="dropdown">
+				<a data-toggle="dropdown" class="icon-menu" href="#"></a>
+				<ul class="filters" role="menu">
+					<li><span>Filter posts by:</span></li>
+				  <li><a href="#" data-filter="*">all</a></li>
+				  <li><a href="#" data-filter=".tag-telefony">telefony</a></li>
+				  <li><a href="#" data-filter=".tag-python">python</a></li>
+				  <li><a href="#" data-filter=".tag-lua">lua</a></li>
+				  <li><a href="#" data-filter=".tag-docker">docker</a></li>
+				  <li><a href="#" data-filter=".tag-photo">photo</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row">
+				<main id="main" class="main-content" role="main">
+					{{! Our Loop }}
+					{{#foreach posts}}
+						<a href="{{url}}" class="post-item">
+							<article class="{{post_class}}">
+								<div class="entry">
+						      <div class="featured-img">
+						      	{{content words="0"}}
+										<img class="no-img" src="/assets/images/no-img.jpg" alt="">
+						      </div>
+						      <div class="caption">
+						      	<h3>{{{title}}}</h3>
+						      	<span class="post-time">{{date published_at timeago="true"}}</span>
+						      </div>
+						    </div>
+							</article>
+						</a>
+					{{/foreach}}
+				</main>
+			</div>
+		</div>
+
+		{{!! Pagination }}
+		{{pagination}}

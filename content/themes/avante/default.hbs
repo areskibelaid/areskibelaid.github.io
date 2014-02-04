@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {{! Document Settings }}
+  <meta charset="UTF-8">
+
+  {{! Page Meta }}
+  <title>{{meta_title}}</title>
+  <meta name="description" content="{{meta_description}}" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  {{! Stylesheet }}
+  <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/css/animate.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/fonts/icomoon/icon.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
+
+	{{! Font }}
+	<link rel="stylesheet" type="text/css" href="/assets/fonts/icomoon/icon.css" />
+	<link href='http://fonts.googleapis.com/css?family=Lusitana:400,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+
+	{{! Modernizr}}
+  <script type="text/javascript" src="/assets/js/modernizr.custom.57334.js"></script>
+
+  {{! Ghost head requirement }}
+  {{ghost_head}}
+</head>
+
+<body class="{{body_class}} cbp-spmenu-push" data-smooth-scroll="1">
+
+  {{{body}}}
+
+  	</div><!-- END container wrap -->
+
+		{{> topanchor}}
+	</div><!-- END main wrapper -->
+
+  <footer>
+  	<section class="footer-content">
+  		{{> social}}
+			<span class="copyright">&copy; {{date format='YYYY'}} {{@blog.title}}.
+  	</section>
+  </footer>
+
+  {{! Ghost footer requirement }}
+  {{ghost_foot}}
+
+  {{! The JavaScript files for the theme }}
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <script>
+		if (typeof jQuery == 'undefined') {
+	    document.write(unescape("%3Cscript src='assets/js/jquery-2.0.3.min.js' type='text/javascript'%3E%3C/script%3E"));
+		}
+	</script>
+  <script type="text/javascript" src="/assets/js/vendor/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/assets/js/vendor/isotope.min.js"></script>
+  <script type="text/javascript" src="/assets/js/vendor/imagesLoaded.min.js"></script>
+  <script type="text/javascript" src="/assets/js/vendor/jquery.fitvids.js"></script>
+  <script type="text/javascript" src="/assets/js/vendor/jquery.nicescroll.js"></script>
+  <script type="text/javascript" src="/assets/js/vendor/jquery.infinitescroll.min.js"></script>
+  <script type="text/javascript" src="/assets/js/vendor/jquery.responsImg.min.js"></script>
+  <script type="text/javascript" src="/assets/js/vendor/easing.js"></script>
+  <script type="text/javascript" src="/assets/js/vendor/transit.min.js"></script>
+  <script type="text/javascript" src="/assets/js/vendor/classie.js"></script>
+  <script type="text/javascript" src="/assets/js/main.js"></script>
+</body>
+</html>

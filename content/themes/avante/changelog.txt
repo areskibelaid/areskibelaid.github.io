@@ -1,0 +1,15 @@
+*** Scope Changelog ***
+
+January 20 2014 - Version 1.1
+	* Updated for Ghost version 0.4
+	* Added static pages support
+	* Updated Documentation
+
+	ADDED:
+	* menu.hbs
+	* changelog.txt
+
+
+December 18 2013 - Version 1.0
+	
+	* First Release

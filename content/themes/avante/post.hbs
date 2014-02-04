@@ -1,0 +1,98 @@
+{{!< default}}
+
+{{> menu}}
+
+<div class="featured-image-wrap clearfix">
+	<button id="showLeft"><i class="icon-flickr"></i></button>
+	<div class="featured-image" data-height="420"></div>
+</div>
+
+<div id="main-wrapper">
+	<div class="container-wrap">
+
+	<div id="post-menu" class="sticky-menu">
+		<div class="container">
+			<div class="row">
+				<div class="content-nav col-xs-6">
+					<a class="intro" href="#intro"><i class="icon-file"></i><span class="nav-text">Intro</span></a>
+					<a class="comments" href="#comments"><i class="icon-bubbles4"></i><span class="nav-text">Comments</span></a>
+				</div>
+				<div class="content-menu col-xs-6">
+					<a href="{{@blog.url}}"><i class="icon-home"></i></a>
+					<a id="pop-share"><i class="icon-share"></i></a>
+					<div id="sharePopover">
+						{{> share}}
+					</div>
+					<a onclick="window.print();"><i class="icon-print"></i></a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<main class="main-content col-sm-9" role="main">
+
+			  <article class="{{post_class}}">
+			    {{#post}}
+					<a id="intro" class="anchor">&nbsp;</a>
+			    <section class='post-content'>
+				    <span class='meta'><time datetime="{{date format='MMMM DD, YYYY'}}">{{date format="MMMM DD, YYYY"}}</time> on <em>{{#if tags}}{{tags}}{{/if}}</em></span>
+				    <h1 class="title">{{{title}}}</h1>
+				    <div class='text'>{{content}}</div>
+					</section>
+
+					{{/post}}
+			  </article>
+
+			  {{! Disqus }}
+			  <a id="comments" class="anchor">&nbsp;</a>
+			  <section class="disqus-container">
+			  	<div class="separator"></div>
+			    <div id="disqus_thread"></div>
+			    <script type="text/javascript">
+			      var disqus_shortname = 'areskinet'; // required: replace example with your forum shortname
+			      var disqus_identifier = '{{post.id}}'; // make sure to use the post.id as an identifier, otherwise disqus will use the pages url per default, which might be problematic...
+
+			      /* * * DON'T EDIT BELOW THIS LINE * * */
+			      (function() {
+			          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+			          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+			          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			      })();
+			    </script>
+			    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+			    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+			  </section>
+			</main>
+
+			<aside id="sidebar" class="col-sm-3" role="complementary">
+				<div class="side-content">
+					<section class="author widget">
+						{{#post}}
+							{{#if author}}
+		          	<img src="{{author.image}}" alt="author">
+		            <h4>{{author.name}}</h4>
+		            <p>{{author.bio}}</p>
+			        {{/if}}
+			      {{/post}}
+
+						<div class="share">
+		        	{{> share}}
+		        </div>
+					</section><!-- author -->
+
+					{{! Place your ads or badges here }}
+					<section class="ads widget">
+
+					<a class="twitter-timeline" href="https://twitter.com/areskib" data-widget-id="430374921672224769">Tweets by @areskib</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+
+
+					</section>
+		    </div><!-- side content -->
+			</aside><!-- #sidebar -->
+
+		</div>
+	</div>
