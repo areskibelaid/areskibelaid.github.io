@@ -8,7 +8,7 @@ config = {
     // ### Development **(default)**
     development: {
         // The url to use when providing links to the site, E.g. in RSS and email.
-        url: 'http://local.areski.net',
+        url: 'http://local.areskibelaid.com',
 
         // Example mail config
         // Visit http://docs.ghost.org/mail for instructions
@@ -34,7 +34,7 @@ config = {
         },
         server: {
             // Host to be passed to node's `net.Server#listen()`
-            host: 'local.areski.net',
+            host: 'local.areskibelaid.com',
             // Port to be passed to node's `net.Server#listen()`, for iisnode set this to `process.env.PORT`
             port: '2368'
         }
@@ -44,7 +44,7 @@ config = {
     // When running Ghost in the wild, use the production environment
     // Configure your URL and mail settings here
     production: {
-        url: 'http://local.areski.net',
+        url: 'http://local.areskibelaid.com',
         mail: {},
         database: {
             client: 'sqlite3',
@@ -55,7 +55,7 @@ config = {
         },
         server: {
             // Host to be passed to node's `net.Server#listen()`
-            host: 'local.areski.net',
+            host: 'local.areskibelaid.com',
             // Port to be passed to node's `net.Server#listen()`, for iisnode set this to `process.env.PORT`
             port: '2368'
         }
