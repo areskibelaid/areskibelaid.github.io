@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <meta charset="UTF-8">
+
+  
+  <title>Let's get started with Docker</title>
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <link rel="shortcut icon" type="image/png" href="http://www.gravatar.com/avatar/2319bfc31c8757d206a3df6b34d9a852.png" />
+
+  
+  <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../assets/css/animate.css" />
+  <link rel="stylesheet" type="text/css" href="../assets/fonts/icomoon/icon.css" />
+  <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
+
+	
+	<link rel="stylesheet" type="text/css" href="../assets/fonts/icomoon/icon.css" />
+	<link href='http://fonts.googleapis.com/css?family=Lusitana:400,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+
+	
+  <script type="text/javascript" src="../assets/js/modernizr.custom.57334.js"></script>
+
+  
+  <meta name="generator" content="Ghost 0.4" />
+<link rel="alternate" type="application/rss+xml" title="Areski Belaid" href="../rss/index.html">
+<link rel="canonical" href="http://areskibelaid.com/get-started-docker/" />
+</head>
+
+<body class="post-template tag-docker cbp-spmenu-push" data-smooth-scroll="1">
+
+  
+
+<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
+  <a href="http://areskibelaid.com">Home</a>
+  <a href="../about-me/index.html">About me</a>
+  <a href="../telefony-projects/index.html">Telefony projects</a>
+</nav>
+
+<div class="featured-image-wrap clearfix">
+	<button id="showLeft"><i class="icon-flickr"></i></button>
+	<div class="featured-image" data-height="420"></div>
+</div>
+
+<div id="main-wrapper">
+	<div class="container-wrap">
+
+	<div id="post-menu" class="sticky-menu">
+		<div class="container">
+			<div class="row">
+				<div class="content-nav col-xs-6">
+					<a class="intro" href="index.html#intro"><i class="icon-file"></i><span class="nav-text">Intro</span></a>
+					<a class="comments" href="index.html#comments"><i class="icon-bubbles4"></i><span class="nav-text">Comments</span></a>
+				</div>
+				<div class="content-menu col-xs-6">
+					<a href="http://areskibelaid.com"><i class="icon-home"></i></a>
+					<a id="pop-share"><i class="icon-share"></i></a>
+					<div id="sharePopover">
+						
+<span>Share this post:</span>
+<a class="icon-twitter2" href="http://twitter.com/share?text=Let&#x27;s get started with Docker&url=http://areskibelaid.com/get-started-docker/"
+    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+    <span class="hidden">Twitter</span>
+</a>
+<a class="icon-facebook2" href="https://www.facebook.com/sharer/sharer.php?u=http://areskibelaid.com/get-started-docker/"
+    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+    <span class="hidden">Facebook</span>
+</a>
+<a class="icon-google-plus4" href="https://plus.google.com/share?url=http://areskibelaid.com/get-started-docker/"
+   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+    <span class="hidden">Google+</span>
+</a>
+
+					</div>
+					<a onclick="window.print();"><i class="icon-print"></i></a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<main class="main-content col-sm-9" role="main">
+
+			  <article class="post tag-docker">
+			    
+					<a id="intro" class="anchor">&nbsp;</a>
+			    <section class='post-content'>
+				    <span class='meta'><time datetime="February 02, 2014">February 02, 2014</time> on <em>docker</em></span>
+				    <h1 class="title">Let's get started with Docker</h1>
+				    <div class='text'><p><img src="../content/images/2014/Feb/homepage_docker_logo.png" alt="main-image" /></p>
+
+<p>Getting started with Docker is very simple, I'm going to give you a very simple recipe to get started quickly, I would first recommend to use <a href="https://www.digitalocean.com">DigitalOcean</a>, they provide box with Ubuntu 13.10 and Docker ready for you, so at a very low cost you can start playing with Docker and not have to worry to install anything locally.</p>
+
+<p>If you wish to install Docker locally you can follow this guide : <a href='https://www.docker.io/gettingstarted/#h_installation'>https://www.docker.io/gettingstarted/#h_installation</a></p>
+
+<p>Ready!? So let's play with Docker then, you can now type <code>docker</code> and you will get list of all available commands.</p>
+
+<h3 id="letsrunechohelloworldonanewubuntucontainer">Let's run echo 'hello world' on a new Ubuntu container</h3>
+
+<p>Type the following: <br />
+<code>docker run ubuntu /bin/echo hello world</code></p>
+
+<p>This should output 'hello world'. Just one line?</p>
+
+<p>Docker did all of the following:</p>
+
+<ul>
+<li>It downloaded the base image from the docker index</li>
+<li>it created a new LXC container</li>
+<li>It allocated a filesystem for it</li>
+<li>Mounted a read-write layer</li>
+<li>Allocated a network interface</li>
+<li>Setup an IP for it, with network address translation</li>
+<li>And then executed a process in there</li>
+<li>Captured its output and printed it to you</li>
+</ul>
+
+<p>You can also run an interactive shell session inside the container</p>
+
+<p><code>docker run -i -t ubuntu /bin/bash</code></p>
+
+<p>To detach from the container crtl-p + crtl-q</p>
+
+<p>Searching for a docker image: <code>docker search [image name]</code></p>
+
+<p>Try: <code>docker search ubuntu</code></p>
+
+<h3 id="letsdosomethingmoreexcitingnow">Let's do something more exciting now</h3>
+
+<p>Run a container and stay attached to the shell session: <br />
+<code>docker run -i -t ubuntu /bin/bash</code></p>
+
+<p>You should see your shell changing to something like:   <code>root@b99484200e8t:/#</code> </p>
+
+<p>Type <code>apt-get update</code> <br />
+and now install Apache2 : <code>apt-get install -y apache2</code></p>
+
+<p>Now you can detach (crtl-p + crtl-q)</p>
+
+<p>By default Docker will expose the port 80 of the container to a random port of the host.</p>
+
+<p>So let's list the current containers : <code>docker ps</code> <br />
+You should be able to see the port number that is mapped (ie '49158->80'), in your web browser open the IP of your Droplet follow by the mapped port. You should see the Apache running from your docker.</p>
+
+<p>To finish for today, let's now see what happen on our container, let's type <code>docker diff ID_Container</code> (ID_Container you can find it by typing docker ps), with docker diff are able to inspect all the changes made on the container's filesystem.</p>
+
+<p>That's all for this short post, now you can explore the documentation and docker tutorials out there: <a href='http://www.docker.io/'>http://www.docker.io/</a></p></div>
+					</section>
+
+					
+			  </article>
+
+			  
+			  <a id="comments" class="anchor">&nbsp;</a>
+			  <section class="disqus-container">
+			  	<div class="separator"></div>
+			    <div id="disqus_thread"></div>
+			    <script type="text/javascript">
+			      var disqus_shortname = 'areskinet'; // required: replace example with your forum shortname
+			      var disqus_identifier = '6'; // make sure to use the post.id as an identifier, otherwise disqus will use the pages url per default, which might be problematic...
+
+			      /* * * DON'T EDIT BELOW THIS LINE * * */
+			      (function() {
+			          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+			          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+			          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			      })();
+			    </script>
+			    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+			    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+			  </section>
+			</main>
+
+			<aside id="sidebar" class="col-sm-3" role="complementary">
+				<div class="side-content">
+					<section class="author widget">
+						
+							
+		          	<img src="http://www.gravatar.com/avatar/2319bfc31c8757d206a3df6b34d9a852?d=404" alt="author">
+		            <h4>Areski Belaid</h4>
+		            <p>Python enthusiast &amp; VoIP Freak, I love making the Web. Usually work with FreeSWITCH / Asterisk, Django, Lua, Erlang and lately playing with Golang.
+</p>
+			        
+			      
+
+						<div class="share">
+		        	
+<span>Share this post:</span>
+<a class="icon-twitter2" href="http://twitter.com/share?text=Let&#x27;s get started with Docker&url=http://areskibelaid.com/get-started-docker/"
+    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+    <span class="hidden">Twitter</span>
+</a>
+<a class="icon-facebook2" href="https://www.facebook.com/sharer/sharer.php?u=http://areskibelaid.com/get-started-docker/"
+    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+    <span class="hidden">Facebook</span>
+</a>
+<a class="icon-google-plus4" href="https://plus.google.com/share?url=http://areskibelaid.com/get-started-docker/"
+   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+    <span class="hidden">Google+</span>
+</a>
+
+		        </div>
+					</section><!-- author -->
+
+					
+					<section class="ads widget">
+
+					<a class="twitter-timeline" href="https://twitter.com/areskib" data-widget-id="430374921672224769">Tweets by @areskib</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+
+
+					</section>
+		    </div><!-- side content -->
+			</aside><!-- #sidebar -->
+
+		</div>
+	</div>
+
+  	</div><!-- END container wrap -->
+
+		<div class="top-anchor">
+	<a href="index.html#" id="go-up" class="icon-arrow-up-thin"></a>
+</div>
+	</div><!-- END main wrapper -->
+
+  <footer>
+  	<section class="footer-content">
+  		<ul id="social-profiles">
+	<li class="twitter"><a data-toggle="tooltip" data-placement="top" data-original-title="Follow me on Twitter!" href="http://twitter.com/areskib"><i class="icon-twitter3"></i></a></li>
+	<li class="googleplus"><a data-toggle="tooltip" data-placement="top" data-original-title="Find me on googleplus!" href="https://plus.google.com/u/0/+AreskiBelaid"><i class="icon-google-plus"></i></a></li>
+	<li class="rss"><a data-toggle="tooltip" data-placement="top" data-original-title="Subscribe!" href="http://areskibelaid.com/rss"><i class="icon-feed4"></i></a></li>
+    <li><a data-toggle="tooltip" data-placement="top" data-original-title="Follow me on Instagram" href="http://instagram.com/areskib"><i class="icon-instagram"></i></a></li>
+    <li><a data-toggle="tooltip" data-placement="top" data-original-title="Follow me on Github" href="http://github.com/areski"><i class="icon-github"></i></a></li>
+    <li><a data-toggle="tooltip" data-placement="top" data-original-title="Connect with me on LinkedIn" href="http://es.linkedin.com/in/areski"><i class="icon-linkedin"></i></a></li>
+</ul>
+
+			<span class="copyright">&copy; 2014 Areski Belaid.
+  	</section>
+  </footer>
+
+  
+  <script src="../shared/vendor/jquery/jquery.js?v=857f001a73"></script>
+
+  
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <script>
+		if (typeof jQuery == 'undefined') {
+	    document.write(unescape("%3Cscript src='assets/js/jquery-2.0.3.min.js' type='text/javascript'%3E%3C/script%3E"));
+		}
+	</script>
+  <script type="text/javascript" src="../assets/js/vendor/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../assets/js/vendor/isotope.min.js"></script>
+  <script type="text/javascript" src="../assets/js/vendor/imagesLoaded.min.js"></script>
+  <script type="text/javascript" src="../assets/js/vendor/jquery.fitvids.js"></script>
+  <script type="text/javascript" src="../assets/js/vendor/jquery.nicescroll.js"></script>
+  <script type="text/javascript" src="../assets/js/vendor/jquery.infinitescroll.min.js"></script>
+  <script type="text/javascript" src="../assets/js/vendor/jquery.responsImg.min.js"></script>
+  <script type="text/javascript" src="../assets/js/vendor/easing.js"></script>
+  <script type="text/javascript" src="../assets/js/vendor/transit.min.js"></script>
+  <script type="text/javascript" src="../assets/js/vendor/classie.js"></script>
+  <script type="text/javascript" src="../assets/js/main.js"></script>
+</body>
+</html>
