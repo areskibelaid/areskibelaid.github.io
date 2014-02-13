@@ -1,5 +1,222 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Areski Belaid]]></title><description><![CDATA[Python enthusiast & VoIP Freak, I work with Python, Lua, Erlang and lately GoLang]]></description><link>http://areskibelaid.com/</link><generator>Ghost v0.4.1</generator><lastBuildDate>Sat, 08 Feb 2014 23:53:14 GMT</lastBuildDate><atom:link href="http://areskibelaid.com/rss/" rel="self" type="application/rss+xml"/><author><![CDATA[Areski Belaid]]></author><ttl>60</ttl><item><title><![CDATA[Costa Rica Pictures]]></title><description><![CDATA[<p><img src='http://areskibelaid.com/content/images/2014/Feb/Toucan.jpg'  alt="main-image" /></p>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Areski Belaid]]></title><description><![CDATA[Python enthusiast & VoIP Freak, I work with Python, Lua, Erlang and lately GoLang]]></description><link>http://areskibelaid.com/</link><generator>Ghost v0.4.1</generator><lastBuildDate>Thu, 13 Feb 2014 22:47:37 GMT</lastBuildDate><atom:link href="http://areskibelaid.com/rss/" rel="self" type="application/rss+xml"/><author><![CDATA[Areski Belaid]]></author><ttl>60</ttl><item><title><![CDATA[Nikola, one kickass Site and Blog generator]]></title><description><![CDATA[<p>Nikola is a static Blog &amp; Site generator, it's built in Python and it's to my opinion a very interesting Python project and one of the best site generator out there. I want to take the opportunity to thanks Roberto Alsina, who authored and who support the project, as well as Chris "Kwpolska" Warrick who is a major contributor to Nikola.</p>
+
+<p>Nikola website: <a href='http://getnikola.com/' >http://getnikola.com/</a> <br />
+Python Package : <a href='https://pypi.python.org/pypi/Nikola/' >https://pypi.python.org/pypi/Nikola/</a> <br />
+On Github: <a href='https://github.com/getnikola/nikola' >https://github.com/getnikola/nikola</a></p>
+
+<p>Nikola take his name from Nikola Tesla, which is considered as one of the greatest geek of all times, he invented fluorescent lighting, the Tesla induction motor, the Tesla coil, and developed the alternating current (AC) and many other things.</p>
+
+<h3 id="features">Features</h3>
+
+<p>Nikola has many features, the most remarkable ones are:</p>
+
+<ul>
+<li>Blogs, with tags, feeds, archives, comments, etc.</li>
+<li>RSS Feeds</li>
+<li>A lot of themes: <a href='https://github.com/getnikola/nikola-themes' >https://github.com/getnikola/nikola-themes</a> and easily themable</li>
+<li>Flexible, extensible via plugins (<a href='https://github.com/getnikola/plugins' >https://github.com/getnikola/plugins</a>)</li>
+<li>Small codebase</li>
+<li>reStructuredText or Markdown as input language (also Wiki, BBCode, Textile, and HTML)</li>
+<li>Easy image galleries (just drop files in a folder!)</li>
+<li>Syntax highlighting for almost any programming language or markup</li>
+<li>Preview web server examples</li>
+<li>Live re-rendering while you edit</li>
+</ul>
+
+<p>I personally designed few website with Nikola and from my experience it has been a breeze even to create multi-languages website (English, Spanish &amp; Catalan). To show an example, here 2 websites I built &amp; deployed using Nikola/Bootstrap3:</p>
+
+<ul>
+<li>Emerzia, Phone Emergency Notification System: <a href='http://emerzia.com/' >http://emerzia.com/</a></li>
+<li>PyBCN, Python Barcelona User Group: <a href='http://pybcn.org/' >http://pybcn.org/</a></li>
+</ul>
+
+<h3 id="whyastaticwebsite">Why a Static website?</h3>
+
+<p>There is many reasons that are well explained by Roberto Aslina (<a href='http://getnikola.com/handbook.html' #why-static'>http://getnikola.com/handbook.html#why-static</a>). There is countless advantages, but the most notable ones is that is crazy fast as you remove all the logic of dynamic website and just deliver your content, plus you  can take advantage for free hosting provided by Github (<a href='http://pages.github.com/' >http://pages.github.com/</a>), I will definitely trust more Github than my own hosted webserver. By experience, I had many sites using Wordpress and they ended up into a costly maintenance effort, many security updates, down-time and so many problems you really want to be taken off your shoulders. So static is the answer in many cases, I really try to ask myself why do I need a dynamic website and if I don't find a very good reasons then it means that static fit perfectly.</p>
+
+<p>The recommended formats are reStructuredText and Markdown, but there is also support for textile and WikiCreole and even for just writing HTML. I use Nikola with reStructuredText so if you don't have a preference, here a quick tutorial <a href='http://getnikola.com/quickstart.html' >http://getnikola.com/quickstart.html</a> and there is a handy Online reStructuredText editor that may help you to learn some rst quickly: <a href='http://rst.ninjs.org/' >http://rst.ninjs.org/</a></p>
+
+<p>Enough, it's time to get started, no? Let's show you how to create a simple website with Nikola.</p>
+
+<h3 id="installnikolain3steps">Install Nikola in 3 steps</h3>
+
+<p>1) create a virtualenv :</p>
+
+<pre><code>$ mkvirtualenv kickass-website
+</code></pre>
+
+<p>2) install nikola:</p>
+
+<pre><code>$ pip install Nikola
+</code></pre>
+
+<p>3) install python-requests &amp; livereload:</p>
+
+<pre><code>$ pip install requests==2.2.1
+$ pip install livereload==2.1.0
+</code></pre>
+
+<p>Now type nikola and you should be good to get started!</p>
+
+<p>Let's type <code>nikola help</code>, this will give us an idea of all the command available by Nikola.</p>
+
+<pre><code>$ nikola help
+Nikola is a tool to create static websites and blogs. For full documentation and more information, please visit http://getnikola.com
+
+
+Available commands:
+  nikola auto                 automatically detect site changes, rebuild and optionally refresh a browser
+  nikola bootswatch_theme     given a swatch name from bootswatch.com and a parent theme, creates a custom theme
+  nikola build                run tasks
+  nikola check                check links and files in the generated site
+  nikola clean                clean action / remove targets
+  nikola console              start an interactive Python console with access to your site
+  nikola deploy               deploy the site
+  nikola doit_auto            automatically execute tasks when a dependency changes
+  nikola dumpdb               dump dependency DB
+  nikola forget               clear successful run status from internal DB
+  nikola help                 show help
+  nikola ignore               ignore task (skip) on subsequent runs
+  nikola import_blogger       import a blogger dump
+  nikola import_feed          import a RSS/Atom dump
+  nikola import_wordpress     import a WordPress dump
+  nikola init                 create a Nikola site in the specified folder
+  nikola install_plugin       install plugin into current site
+  nikola install_theme        install theme into current site
+  nikola list                 list tasks from dodo file
+  nikola mincss               apply mincss to the generated site
+  nikola new_post             create a new blog post or site page
+  nikola orphans              list all orphans
+  nikola run                  run tasks
+  nikola serve                start the test webserver
+  nikola strace               use strace to list file_deps and targets
+  nikola tabcompletion        generate script for tab-complention
+  nikola version              print the Nikola version number
+
+  nikola help                 show help / reference
+  nikola help &lt;command&gt;       show command usage
+  nikola help &lt;task-name&gt;     show task usage
+</code></pre>
+
+<h3 id="letscreateademowebsite">Let's create a demo website</h3>
+
+<p>1) We will create now a demo site with demo files to explore nikola</p>
+
+<pre><code>$ nikola init --demo mykickasswebsite
+</code></pre>
+
+<p>This create the directory mykickasswebsite, if you don't want the demo files, then you can simply remove --demo <br />
+I will recommend to explore the files that has been created by nikola, those will help generating your static website.</p>
+
+<p>2) From here, you should be able to build the website, this will create all the static files needed by your webserver to deliver a kickass website:</p>
+
+<pre><code>$ cd mykickasswebsite
+$ nikola build
+</code></pre>
+
+<p>... some magic is happening here!</p>
+
+<p>All the static files are stored in the folder <code>output</code>, you can open the <code>output/index.html</code> in your web browser, but there is nicer way we will show after how to see the result on your browser.</p>
+
+<p>When you enter in the new site directory you will notice the following structure:</p>
+
+<pre><code>files
+galleries
+listings
+posts
+stories
+</code></pre>
+
+<ul>
+<li><code>files</code> directory contains static assets that you want to have available regardless of the theme you use. </li>
+<li><code>galleries</code> reveal the photo gallery feature of Nikola. Inside this directory you can create as many directories as you like, each being a separate gallery. </li>
+<li><code>listings</code>, is for source code listings, please refer here for further information <a href='http://getnikola.com/handbook.html' #id41'>http://getnikola.com/handbook.html#id41</a></li>
+<li><code>posts</code> get more to the heart of Nikola. This directory will keep all your post files in a chosen markup language. </li>
+<li><code>stories</code>, it contains all the "static" pages (non-post pages) you wish to serve. Things like an about or contact page would fit nicely there.</li>
+</ul>
+
+<p>The main page is stored in stories/index.rst, so you can update this file and then run <code>nikola build</code> again.</p>
+
+<p>3) Now let's type <code>nikola serve</code> to serve locally all the static files built:</p>
+
+<pre><code>$ nikola serve
+</code></pre>
+
+<p>Point your browser to the ip/port indicated, normally it should be <code>http://127.0.0.1:8000/</code></p>
+
+<p>'CRTL-C' on terminal to stop it!</p>
+
+<p>4) If you remember we installed <code>livereload</code> earlier this will help us to reload automatically our website every time we edit our code.</p>
+
+<pre><code>$ nikola auto
+</code></pre>
+
+<p>So this is a much nicer way than <code>nikola server</code></p>
+
+<p>5) Let's keep <code>nikola auto</code> and let's try create a new post by running <code>nikola new_post</code></p>
+
+<pre><code>$ nikola new_post
+
+Creating New Post
+-----------------
+
+Enter title: my new post
+Scanning posts....done!
+[2014-02-13T16:17:46Z] NOTICE: new_post: Your post's text is at: posts/my-new-post.rst
+</code></pre>
+
+<p>Now edit <code>posts/my-new-post.rst</code> and write some text to finalize your first blog post on Nikola.</p>
+
+<p>If you kept <code>nikola auto</code> running you will notice that your home page changed automatically and displayed the new post.</p>
+
+<p>All of this also produced new static files, saved in the <code>output/</code> folder which you can host on a webserver (or github) and power your awesome kickass website freely hosted.</p>
+
+<p>6) Let's change the theme to bootstrap3.</p>
+
+<pre><code>$ nikola bootswatch_theme bootstrap3
+</code></pre>
+
+<p>This command download and install bootstrap3 on your Nikola website. <br />
+You will notice a new directory <code>themes</code> which contains a directory <code>custom</code>, <br />
+you can explore this directory to customize the bootstrap3 theme .</p>
+
+<p><code>bootswatch_theme</code> allow you to download and install theme from <a href='http://bootswatch.com/' >http://bootswatch.com/</a></p>
+
+<p>7) Let's explore <code>conf.py</code>, let's start by configuring properly few settings:</p>
+
+<pre><code># Data about this site
+BLOG_AUTHOR = "Your Name"
+BLOG_TITLE = "Demo Site"
+# This is the main URL for your site. It will be used
+# in a prominent link
+SITE_URL = "http://getnikola.com/"
+# This is the URL where nikola's output will be deployed.
+# If not set, defaults to SITE_URL
+# BASE_URL = "http://getnikola.com/"
+BLOG_EMAIL = "joe@demo.site"
+BLOG_DESCRIPTION = "This is a demo site for Nikola."
+</code></pre>
+
+<p>Other important settings you will want to configure are the menu:</p>
+
+<pre><code># Links for the sidebar / navigation bar.
+# You should provide a key-value pair for each used language.
+NAVIGATION_LINKS = {
+    DEFAULT_LANG: (
+        ('/archive.html', 'Archives'),
+        ('/categories/index.html', 'Tags'),
+        ('/rss.xml', 'RSS'),
+    ),
+}
+</code></pre>
+
+<p>I think that will be enough for today, if you feel Nikola is the right tool for you, I can recommend those extra references:</p>
+
+<ul>
+<li>Excellent post covering the basics and even how to customize your templates : <a href='http://shisaa.jp/postset/nikola-web.html' >http://shisaa.jp/postset/nikola-web.html</a></li>
+<li>The Official Handbook: <a href='http://getnikola.com/handbook.html' >http://getnikola.com/handbook.html</a></li>
+</ul>]]></description><link>http://areskibelaid.com/nikola-one-kickass-site-generator/</link><guid isPermaLink="false">8a1a13de-8d79-4593-99eb-69e1e6a0f908</guid><dc:creator><![CDATA[Areski Belaid]]></dc:creator><pubDate>Thu, 13 Feb 2014 16:36:52 GMT</pubDate></item><item><title><![CDATA[Costa Rica Pictures]]></title><description><![CDATA[<p><img src='http://areskibelaid.com/content/images/2014/Feb/Toucan.jpg'  alt="main-image" /></p>
 
 <p>Why share new pictures when there are good old ones ?</p>
 
