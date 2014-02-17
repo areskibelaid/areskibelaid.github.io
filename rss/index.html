@@ -1,5 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Areski Belaid]]></title><description><![CDATA[Python enthusiast & VoIP Freak, I work with Python, Lua, Erlang and lately GoLang]]></description><link>http://areskibelaid.com/</link><generator>Ghost v0.4.1</generator><lastBuildDate>Fri, 14 Feb 2014 16:06:17 GMT</lastBuildDate><atom:link href="http://areskibelaid.com/rss/" rel="self" type="application/rss+xml"/><author><![CDATA[Areski Belaid]]></author><ttl>60</ttl><item><title><![CDATA[Nikola, one kickass Site and Blog generator]]></title><description><![CDATA[<p><img src='http://areskibelaid.com/content/images/2014/Feb/nikola_tesla.jpg'  alt="main-image" /></p>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Areski Belaid]]></title><description><![CDATA[Python enthusiast & VoIP Freak, I work with Python, Lua, Erlang and lately GoLang]]></description><link>http://areskibelaid.com/</link><generator>Ghost v0.4.1</generator><lastBuildDate>Mon, 17 Feb 2014 12:27:23 GMT</lastBuildDate><atom:link href="http://areskibelaid.com/rss/" rel="self" type="application/rss+xml"/><author><![CDATA[Areski Belaid]]></author><ttl>60</ttl><item><title><![CDATA[Asterisk on Docker]]></title><description><![CDATA[<p><img src='http://areskibelaid.com/content/images/2014/Feb/Asterisk_bg_grey.jpg'  alt="main-image" /></p>
+
+<p>Asterisk is an open source PBX system, created by Digium, more exactly started by <a href='http://en.wikipedia.org/wiki/Mark_Spencer_' (computer_engineer)">Mark Spencer</a> who is the original creator. Asterisk has a huge and growing community, it's certainly the number one PBX system out there.</p>
+
+<p><img src='http://areskibelaid.com/content/images/2014/Feb/Asterisk.png'  alt="Asterisk" /></p>
+
+<h3 id="whycombininingasteriskwithdocker">Why combinining Asterisk with Docker?</h3>
+
+<p>We can see with gains in using Asterisk inside Docker, the main reasons why I actually started it's to solve my development evironment, it allows me to spawn small Asterisk container and test them with my own application without the need to altered my own OS, Docker is extremelly fast and in matter of few seconds you container is running (if it has been build). I'm sure some of you will look at possibility in deploying Asterisk in production that way, there is potential for company willing to provide small PBXs container or to simply deploy their product that way for their users.</p>
+
+<p>This post will be a simple recipe how to create an Asterisk Docker, right now the only flaw is the port mapping, as we speak Docker doesn't have an elegant way to map range of port to a container, this can be sorted with long command line but just not elegant. This will certainly be sorted in the future, there is work in progress: <a href='https://github.com/jhorey/docker/pull/1' >https://github.com/jhorey/docker/pull/1</a></p>
+
+<p>An other issue was the ability to map udp &amp; tcp on the same port, this has been solved in docker v0.8, so make sure you have at least 0.8 running.</p>
+
+<h3 id="letsgetourhandsdirtyandgetstarted">Let's get our hands dirty and get started.</h3>
+
+<p>Download Debian images:</p>
+
+<pre><code>$ docker pull debian
+</code></pre>
+
+<p>Run an image on a new container:</p>
+
+<pre><code>$ docker run -i -t debian:wheezy /bin/bash
+$ Install Asterisk &amp; Apache2
+$ apt-get -y install apache2 asterisk
+</code></pre>
+
+<h3 id="configurationrtpports">Configuration RTP Ports</h3>
+
+<p>Docker doesn't currently allow a range of ports to be opened, as such all RTP ports have to be specified on the command line. In the example above we are only opening 10, so you will be limited to 10 simulataneous calls.</p>
+
+<p>Edit the configuration to ensure only these ports are used:</p>
+
+<p>Edit <code>/etc/asterisk/rtp.conf</code>:</p>
+
+<pre><code>rtpstart=16384
+rtpend=16394
+</code></pre>
+
+<p>Or:</p>
+
+<pre><code>$ sed -i "s/rtpstart=10000/rtpstart=16384/g" /etc/asterisk/rtp.conf
+$ sed -i "s/rtpend=20000/rtpend=16394/g" /etc/asterisk/rtp.conf
+</code></pre>
+
+<h3 id="startandcheckthatasteriskisrunningandlistening">Start and check that Asterisk is running and listening</h3>
+
+<p>Start Asterisk:</p>
+
+<pre><code>$ /etc/init.d/asterisk start
+</code></pre>
+
+<p>Check that is well running and listening:</p>
+
+<pre><code>$ netstat -nap | grep asterisk
+</code></pre>
+
+<h3 id="quitandcreateandimage">Quit and create and image</h3>
+
+<pre><code>$ CTRL-P + CTRL-Q (this will return to your shell and keep the container running)
+</code></pre>
+
+<p>Retrieve the last Container ID:</p>
+
+<pre><code>$ `dl`
+# dl is an alias -&gt; alias dl='docker ps -l -q'
+</code></pre>
+
+<p>Commit your last container and create a new image:</p>
+
+<pre><code>$ docker commit -m "Asterisk with Apache" `dl` mydebian_apache_asterisk
+</code></pre>
+
+<p>Now you can launch a new container and open ports for your container mydebian<em>apache</em>asterisk:</p>
+
+<pre><code>$ docker run -d -p 9080:80 -p 5060:5060/tcp -p 5060:5060/udp -p 16384:16384/udp -p 16385:16385/udp -p 16386:16386/udp -p 16387:16387/udp -p 16388:16388/udp -p 16389:16389/udp -p 16390:16390/udp -p 16391:16391/udp -p 16392:16392/udp -p 16393:16393/udp -p 16394:16394/udp mydebian_apache_asterisk run
+</code></pre>
+
+<p>You can start as many containers as you want and stop them with <code>docker stop</code>, the command <code>docker ps</code> will allow you to watch all the running containers and the ports mapper to them.</p>
+
+<p>I hope you found this post useful, please drop some comments.</p>]]></description><link>http://areskibelaid.com/asterisk-on-docker/</link><guid isPermaLink="false">9d8a4d4c-760f-45c9-a2eb-347b8088f73a</guid><dc:creator><![CDATA[Areski Belaid]]></dc:creator><pubDate>Mon, 17 Feb 2014 12:19:47 GMT</pubDate></item><item><title><![CDATA[Nikola, one kickass Site and Blog generator]]></title><description><![CDATA[<p><img src='http://areskibelaid.com/content/images/2014/Feb/nikola_tesla.jpg'  alt="main-image" /></p>
 
 <p>Nikola is a static Blog &amp; Site generator, it's built in Python and it's to my opinion a very interesting Python project and one of the best site generator out there. I want to take the opportunity to thanks Roberto Alsina, who authored and who support the project, as well as Chris "Kwpolska" Warrick who is a major contributor to Nikola.</p>
 
