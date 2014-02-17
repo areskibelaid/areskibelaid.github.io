@@ -770,23 +770,34 @@ footer #social-profiles .rss a {
   list-style: none;
 }
 .home-template article {
-  background: white;
+  /*background: white;*/
+  /*background: #f0f0f0;*/
+  /*box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);*/
+  /*margin: 0.3em;*/
+  margin-bottom: 1.2em;
+}
+.entry{
+  margin: 0.3em;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
 }
 @media (min-width: 0) {
   .home-template article {
-    width: 100%;
+    width: 98%;
     padding: 1px;
+    margin-bottom: 1.2em;
   }
 }
 @media (min-width: 48em) {
   .home-template article {
     width: 49.9%;
+    margin-bottom: 1.2em;
   }
 }
 @media (min-width: 62em) {
   .home-template article {
     padding: 1px 1px 2px;
-    width: 33.33%;
+    width: 32.33%;
+    margin-bottom: 1.2em;
   }
 }
 .home-template .entry {
