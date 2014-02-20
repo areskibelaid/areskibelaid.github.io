@@ -36,7 +36,7 @@
   
 
 <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-  <a href="http://areskibelaid.com">Home</a>
+  <a href="../index.html">Home</a>
   <a href="../about-me/index.html">About me</a>
   <a href="../telefony-projects/index.html">Telefony projects</a>
 </nav>
@@ -57,7 +57,7 @@
 					<a class="comments" href="index.html#comments"><i class="icon-bubbles4"></i><span class="nav-text">Comments</span></a>
 				</div>
 				<div class="content-menu col-xs-6">
-					<a href="http://areskibelaid.com"><i class="icon-home"></i></a>
+					<a href="../index.html"><i class="icon-home"></i></a>
 					<a id="pop-share"><i class="icon-share"></i></a>
 					<div id="sharePopover">
 						
@@ -94,19 +94,21 @@
 				    <h1 class="title">Asterisk on Docker</h1>
 				    <div class='text'><p><img src="../content/images/2014/Feb/Asterisk_bg_grey.jpg" alt="main-image" /></p>
 
-<p>Asterisk is an open source PBX system, created by Digium, more exactly started by <a href="http://en.wikipedia.org/wiki/Mark_Spencer_(computer_engineer)">Mark Spencer</a> who is the original creator. Asterisk has a huge and growing community, it's certainly the number one PBX system out there.</p>
+<p>Asterisk is an open source PBX system, created by Digium, more exactly, authored by <a href="http://en.wikipedia.org/wiki/Mark_Spencer_(computer_engineer)">Mark Spencer</a>. Asterisk PBX allows people to make calls to each other but also connects them with telephone services, such as reaching the public network or VoIP services. Asterisk is certainly the number one PBX system out there.</p>
 
 <p><img src="../content/images/2014/Feb/Asterisk.png" alt="Asterisk" /></p>
 
-<h3 id="whycombininingasteriskwithdocker">Why combinining Asterisk with Docker?</h3>
+<h3 id="whycombineasteriskwithdocker">Why combine Asterisk with Docker?</h3>
 
-<p>We can see with gains in using Asterisk inside Docker, the main reasons why I actually started it's to solve my development evironment, it allows me to spawn small Asterisk container and test them with my own application without the need to altered my own OS, Docker is extremelly fast and in matter of few seconds you container is running (if it has been build). I'm sure some of you will look at possibility in deploying Asterisk in production that way, there is potential for company willing to provide small PBXs container or to simply deploy their product that way for their users.</p>
+<p>We can see many advantages in using Asterisk inside Docker, the main reason in my case was to solve my development environment. It allows us to spawn small Asterisk containers and test them with applications without needing to alter our own OS or use a heavy VM system. Docker is extremely fast and in a matter of seconds the container is running. </p>
 
-<p>This post will be a simple recipe how to create an Asterisk Docker, right now the only flaw is the port mapping, as we speak Docker doesn't have an elegant way to map range of port to a container, this can be sorted with long command line but just not elegant. This will certainly be sorted in the future, there is work in progress: <a href='https://github.com/jhorey/docker/pull/1'>https://github.com/jhorey/docker/pull/1</a></p>
+<p>There is also a significant potential in deploying Asterisk for customers, for instance companies willing to provide small PBXs containers to their clients will find docker especially interesting.</p>
 
-<p>An other issue was the ability to map udp &amp; tcp on the same port, this has been solved in docker v0.8, so make sure you have at least 0.8 running.</p>
+<p>This post is a simple recipe for how to create an Asterisk Docker. Right now, the only flaw is the port mapping, as we speak Docker doesn't have an elegant way to map <code>range of ports</code> to a container, this can be sorted with a long command line but it just won't be very pratical. This will certainly be sorted in the future, there is work in progress on the matter: <a href='https://github.com/jhorey/docker/pull/1'>https://github.com/jhorey/docker/pull/1</a></p>
 
-<h3 id="letsgetourhandsdirtyandgetstarted">Let's get our hands dirty and get started.</h3>
+<p>Before Docker 0.8 you might have encountered an issue in mapping UDP &amp; TCP on the same port, this has now been solved in docker v0.8, so make sure you have 0.8 running at least.</p>
+
+<h3 id="letsgetourhandsdirtyandgetstarted">Let's get our hands dirty and get started</h3>
 
 <p>Download Debian images:</p>
 
@@ -124,7 +126,7 @@ $ apt-get -y install apache2 asterisk
 
 <p>Docker doesn't currently allow a range of ports to be opened, as such all RTP ports have to be specified on the command line. In the example above we are only opening 10, so you will be limited to 10 simulataneous calls.</p>
 
-<p>Edit the configuration to ensure only these ports are used:</p>
+<p>Edit the Asterisk RTP configuration to ensure only these ports are used.</p>
 
 <p>Edit <code>/etc/asterisk/rtp.conf</code>:</p>
 
@@ -138,7 +140,7 @@ rtpend=16394
 $ sed -i "s/rtpend=20000/rtpend=16394/g" /etc/asterisk/rtp.conf
 </code></pre>
 
-<h3 id="startandcheckthatasteriskisrunningandlistening">Start and check that Asterisk is running and listening</h3>
+<h3 id="startandcheckthatasteriskisrunning">Start and check that Asterisk is running</h3>
 
 <p>Start Asterisk:</p>
 
@@ -166,14 +168,14 @@ $ sed -i "s/rtpend=20000/rtpend=16394/g" /etc/asterisk/rtp.conf
 <pre><code>$ docker commit -m "Asterisk with Apache" `dl` mydebian_apache_asterisk
 </code></pre>
 
-<p>Now you can launch a new container and open ports for your container mydebian<em>apache</em>asterisk:</p>
+<p>Now, you can launch a new container and open ports for your container mydebian<em>apache</em>asterisk:</p>
 
 <pre><code>$ docker run -d -p 9080:80 -p 5060:5060/tcp -p 5060:5060/udp -p 16384:16384/udp -p 16385:16385/udp -p 16386:16386/udp -p 16387:16387/udp -p 16388:16388/udp -p 16389:16389/udp -p 16390:16390/udp -p 16391:16391/udp -p 16392:16392/udp -p 16393:16393/udp -p 16394:16394/udp mydebian_apache_asterisk run
 </code></pre>
 
-<p>You can start as many containers as you want and stop them with <code>docker stop</code>, the command <code>docker ps</code> will allow you to watch all the running containers and the ports mapper to them.</p>
+<p>You can start as many containers as you want and stop them with <code>docker stop</code>. The command <code>docker ps</code> will allow you to watch all the running containers and the ports mapped to them.</p>
 
-<p>I hope you found this post useful, please drop some comments.</p></div>
+<p>I hope you found this post useful, feel free to drop some comments.</p></div>
 					</section>
 
 					
@@ -269,7 +271,7 @@ $ sed -i "s/rtpend=20000/rtpend=16394/g" /etc/asterisk/rtp.conf
   </footer>
 
   
-  <script src="../shared/vendor/jquery/jquery.js?v=dabf4557c1"></script>
+  <script src="../shared/vendor/jquery/jquery.js?v=e4dc49321e"></script>
 
   
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
