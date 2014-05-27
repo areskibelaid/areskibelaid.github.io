@@ -1,6 +1,6 @@
 // The Post Settings Menu available in the content preview screen, as well as the post editor.
 
-/*global window, document, $, _, Backbone, Ghost, moment */
+/*global window, $, _, Ghost, moment */
 
 (function () {
     "use strict";
@@ -99,7 +99,10 @@
             var self = this,
                 slug = self.model.get('slug'),
                 slugEl = e.currentTarget,
-                newSlug = slugEl.value;
+                newSlug = slugEl.value,
+                placeholder = slugEl.placeholder;
+
+            newSlug = (_.isEmpty(newSlug) && placeholder) ? placeholder : newSlug;
 
             // If the model doesn't currently
             // exist on the server (aka has no id)
@@ -121,7 +124,7 @@
                 slug: newSlug
             }, {
                 success : function (model, response, options) {
-                    /*jslint unparam:true*/
+                    /*jshint unused:false*/
                     // Repopulate slug in case it changed on the server (e.g. 'new-slug-2')
                     slugEl.value = model.get('slug');
                     Ghost.notifications.addItem({
@@ -131,7 +134,7 @@
                     });
                 },
                 error : function (model, xhr) {
-                    /*jslint unparam:true*/
+                    /*jshint unused:false*/
                     slugEl.value = model.previous('slug');
                     Ghost.notifications.addItem({
                         type: 'error',
@@ -241,7 +244,7 @@
                     });
                 },
                 error : function (model, xhr) {
-                    /*jslint unparam:true*/
+                    /*jshint unused:false*/
                     //  Reset back to original value
                     pubDateEl.value = pubDateMoment ? pubDateMoment.format(displayDateFormat) : '';
                     Ghost.notifications.addItem({
@@ -272,7 +275,7 @@
                 page: page
             }, {
                 success : function (model, response, options) {
-                    /*jslint unparam:true*/
+                    /*jshint unused:false*/
                     pageEl.prop('checked', page);
                     Ghost.notifications.addItem({
                         type: 'success',
@@ -281,7 +284,7 @@
                     });
                 },
                 error : function (model, xhr) {
-                    /*jslint unparam:true*/
+                    /*jshint unused:false*/
                     pageEl.prop('checked', model.previous('page'));
                     Ghost.notifications.addItem({
                         type: 'error',
@@ -327,13 +330,15 @@
                                         });
                                     });
                                 },
-                                text: "Yes"
+                                text: "Delete",
+                                buttonClass: "button-delete"
                             },
                             reject: {
                                 func: function () {
                                     return true;
                                 },
-                                text: "No"
+                                text: "Cancel",
+                                buttonClass: "button"
                             }
                         },
                         type: "action",
