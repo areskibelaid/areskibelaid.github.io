@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
 
   
-  <title>Ideas for blogging</title>
+  <title>Python and Django NVD3</title>
   <meta name="description" content="" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
@@ -28,10 +28,10 @@
   
   <meta name="generator" content="Ghost 0.4" />
 <link rel="alternate" type="application/rss+xml" title="Areski Belaid" href="../rss/index.html">
-<link rel="canonical" href="http://areskibelaid.com/ideas-for-blogging/" />
+<link rel="canonical" href="http://areskibelaid.com/python-and-django-nvd3/" />
 </head>
 
-<body class="post-template tag-blog cbp-spmenu-push" data-smooth-scroll="1">
+<body class="post-template tag-python tag-nvd3 cbp-spmenu-push" data-smooth-scroll="1">
 
   
 
@@ -62,15 +62,15 @@
 					<div id="sharePopover">
 						
 <span>Share this post:</span>
-<a class="icon-twitter2" href="http://twitter.com/share?text=Ideas for blogging&url=http://areskibelaid.com/ideas-for-blogging/"
+<a class="icon-twitter2" href="http://twitter.com/share?text=Python and Django NVD3&url=http://areskibelaid.com/python-and-django-nvd3/"
     onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
     <span class="hidden">Twitter</span>
 </a>
-<a class="icon-facebook2" href="https://www.facebook.com/sharer/sharer.php?u=http://areskibelaid.com/ideas-for-blogging/"
+<a class="icon-facebook2" href="https://www.facebook.com/sharer/sharer.php?u=http://areskibelaid.com/python-and-django-nvd3/"
     onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
     <span class="hidden">Facebook</span>
 </a>
-<a class="icon-google-plus4" href="https://plus.google.com/share?url=http://areskibelaid.com/ideas-for-blogging/"
+<a class="icon-google-plus4" href="https://plus.google.com/share?url=http://areskibelaid.com/python-and-django-nvd3/"
    onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
     <span class="hidden">Google+</span>
 </a>
@@ -86,38 +86,70 @@
 		<div class="row">
 			<main class="main-content col-sm-9" role="main">
 
-			  <article class="post tag-blog">
+			  <article class="post tag-python tag-nvd3">
 			    
 					<a id="intro" class="anchor">&nbsp;</a>
 			    <section class='post-content'>
-				    <span class='meta'><time datetime="January 02, 2014">January 02, 2014</time> on <em><a href="../tag/blog/index.html">blog</a></em></span>
-				    <h1 class="title">Ideas for blogging</h1>
-				    <div class='text'><p><img src="../content/images/2014/Feb/idea_bulb.jpg" alt="main-image" /></p>
+				    <span class='meta'><time datetime="May 27, 2014">May 27, 2014</time> on <em><a href="../tag/python/index.html">python</a>, <a href="../tag/nvd3/index.html">nvd3</a></em></span>
+				    <h1 class="title">Python and Django NVD3</h1>
+				    <div class='text'><p><img src="../content/images/2014/May/python-nvd3.jpg" alt="main-image" /></p>
 
-<p>We all have a #shit# lot of work, aren't we? Maybe you try to run a company, have a busy job, do sport, enjoy leisure, watch a movie, read a book or two... My feeling is that time is always flying, I enjoy everyday but rarely have the time to do everything I would like to, and maintaining my blog is one of them. My previous blog started 9 years ago, I did few posts the first few months and then it get lost among the hundreds of other priorities which were always more important.</p>
+<p>Over the past year, I've built 2 projects related to Charts, Python-NVD3 &amp; Django-NVD3. For those of you who aren't familiar with NVD3 yet, please visit their website (<a href='http://nvd3.org/'>http://nvd3.org/</a>), NVD3 will help you build re-usable and attractive charts with the power of D3.js (<a href='http://d3js.org/'>http://d3js.org/</a>).</p>
 
-<p>I really wonder how peoples keep themselves rigorous on writing, specially if they are coders? I hope this time it won't be again my next New Year resolution! And how do you become good at it, is perseverance and persistence the key?</p>
+<p>A screenshot of a PieChart created with NVD3 (the real example is interacive): <br />
+<img src="../content/images/2014/May/nvd3-pie-chart.png" alt="" />
+Example link: <a href='http://nvd3.org/examples/pie.html'>http://nvd3.org/examples/pie.html</a></p>
 
-<p>Well as you guessed, this is <em>my new attempt</em> in blogging, a desire in sharing text rather than code! I hope by getting feedback it will keep me motivated, and to get feedback I need first to write something worth reading :)</p>
+<p>If you want to play with examples on Jsfiddle? <br />
+-> <a href='http://jsfiddle.net/areski/z4zuH/246/'>http://jsfiddle.net/areski/z4zuH/246/</a></p>
 
-<p>I know I want my personal blog to be about my experience, a way to share some of my knowledge, a place where I could freely share doubts/questions and try new way to communicate, basta twitter... I hope this won't get lost in the immensity of <strong>the Internet</strong>, I will definitely try harder this time :)</p>
+<h2 id="pythondjango">Python &amp; Django ?</h2>
 
-<p><img src="../content/images/2014/Feb/the_internet.jpg" alt="The Internet" /></p>
+<p>In my day to day work, I use Python &amp; Django, so I'll let you guess what my next step was. I started building a simple wrapper on top of the NVD3 javascript library. The goals were simple, I needed to simplify injecting charts into my (Django) web projects. Indeed, a lot of my projects have built-in dashboards or reporting tools, having those without a few charts is no fun at all for your users.</p>
 
-<p>I'm trying to gather few ideas for the upcoming posts:</p>
+<p>NVD3 is a great piece of software and a big thanks to Novus for making this project open source. <br />
+Novus released a project that will cover most of my chart needs and maybe yours, they did a great job which lead to a successful open source project with plenty of contributers. Now it was time for me to build something I could use accross my Python projects.</p>
 
-<ul>
-<li>Get started with FreeSWITCH</li>
-<li>MongoDB, aggregation</li>
-<li>Django and Travis-CI</li>
-<li>DevOps with SaltStack</li>
-<li>Deploy your Django site on Docker</li>
-<li>Build API with Flask &amp; SQLAlchemy</li>
-</ul>
+<p>So here comes Python-NVD3: <a href='https://github.com/areski/python-nvd3'>https://github.com/areski/python-nvd3</a></p>
 
-<p>We may hear a lot about Python / Django / Flask, but I will definitely do some efforts to not be too religious about the Python world, I'm also interested into Lua, Erlang, GoLang, about Deployment, CI, testing, Telephony, so I guess there is a lot of topiics to the rhythm of the blog.</p>
+<p>After the installation of Python-nvd3, you can create a variety of different charts (cumulativeLineChart, discreteBarChart, scatterChart and more). </p>
 
-<p>Stay tuned!</p></div>
+<p>If you want to create a Piechart Chart with Python-NVD3, here is a quick example:</p>
+
+<pre><code>from nvd3 import pieChart
+
+#Open File to write the D3 Graph
+output_file = open('test-nvd3.html', 'w')
+
+type = 'pieChart'  
+chart = pieChart(name=type, color_category='category20c', height=450, width=450)  
+chart.set_containerheader("\n\n&lt;h2&gt;" + type + "&lt;/h2&gt;\n\n")
+
+#Create the keys
+xdata = ["Orange", "Banana", "Pear", "Kiwi", "Apple", "Strawberry", "Pineapple"]  
+ydata = [3, 4, 0, 1, 5, 7, 3]
+
+#Add the serie
+extra_serie = {"tooltip": {"y_start": "", "y_end": " cal"}}  
+chart.add_serie(y=ydata, x=xdata, extra=extra_serie)  
+chart.buildhtml()  
+output_file.write(chart.htmlcontent)
+
+#close Html file
+output_file.close()  
+</code></pre>
+
+<p>Finally, Django-NVD3 is my attempt at using the power of Python-NVD3 within Django's project: <a href='https://github.com/areski/django-nvd3'>https://github.com/areski/django-nvd3</a></p>
+
+<p>So far, there are a good amount of contributors and I'm really looking forward to seeing how this <code>simple</code> library will grow. If you have ideas, suggestions, feel free to comment here or contact me on twitter <a href="http://twitter.com/areskib">@areskib</a></p>
+
+<p>Yesterday, we released a new version of both projects. Thanks to the help of Justin (<a href='https://github.com/jmduke'>https://github.com/jmduke</a>) the javascript output is rendered with Jinja2, which is a much cleaner approach.</p>
+
+<p>Docs: <br />
+<a href='http://python-nvd3.readthedocs.org/en/latest/'>http://python-nvd3.readthedocs.org/en/latest/</a> <br />
+<a href='http://django-nvd3.readthedocs.org/en/latest/'>http://django-nvd3.readthedocs.org/en/latest/</a></p>
+
+<p>Bon Python!</p></div>
 					</section>
 
 					
@@ -130,7 +162,7 @@
 			    <div id="disqus_thread"></div>
 			    <script type="text/javascript">
 			      var disqus_shortname = 'areskibelaid'; // required: replace example with your forum shortname
-			      var disqus_identifier = '4'; // make sure to use the post.id as an identifier, otherwise disqus will use the pages url per default, which might be problematic...
+			      var disqus_identifier = '13'; // make sure to use the post.id as an identifier, otherwise disqus will use the pages url per default, which might be problematic...
 
 			      /* * * DON'T EDIT BELOW THIS LINE * * */
 			      (function() {
@@ -159,15 +191,15 @@
 						<div class="share">
 		        	
 <span>Share this post:</span>
-<a class="icon-twitter2" href="http://twitter.com/share?text=Ideas for blogging&url=http://areskibelaid.com/ideas-for-blogging/"
+<a class="icon-twitter2" href="http://twitter.com/share?text=Python and Django NVD3&url=http://areskibelaid.com/python-and-django-nvd3/"
     onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
     <span class="hidden">Twitter</span>
 </a>
-<a class="icon-facebook2" href="https://www.facebook.com/sharer/sharer.php?u=http://areskibelaid.com/ideas-for-blogging/"
+<a class="icon-facebook2" href="https://www.facebook.com/sharer/sharer.php?u=http://areskibelaid.com/python-and-django-nvd3/"
     onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
     <span class="hidden">Facebook</span>
 </a>
-<a class="icon-google-plus4" href="https://plus.google.com/share?url=http://areskibelaid.com/ideas-for-blogging/"
+<a class="icon-google-plus4" href="https://plus.google.com/share?url=http://areskibelaid.com/python-and-django-nvd3/"
    onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
     <span class="hidden">Google+</span>
 </a>
