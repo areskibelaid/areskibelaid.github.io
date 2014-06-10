@@ -59,7 +59,7 @@ function getMaxPagination() {
 function fitVids() {
   "use strict";
 
-  $j(".post").fitVids();  
+  $j(".post").fitVids();
 }
 
 function isotopeSetup() {
@@ -109,7 +109,7 @@ function isotopeSetup() {
     $j('.filters a').click(function () {
       return false;
     });
-  }    
+  }
 }
 
 function removenoImg() {
@@ -150,7 +150,7 @@ function infiniteScrollSetup() {
         });
       }
     );
-  }  
+  }
 }
 
 function reloadIsotope() {
@@ -182,9 +182,9 @@ function stickyMenu() {
     $j('.icon-menu').show();
     $j('.filters').addClass('dropdown-menu');
   }
-  else { 
-    $j('.icon-menu').hide(); 
-    $j('.filters').removeClass('dropdown-menu'); 
+  else {
+    $j('.icon-menu').hide();
+    $j('.filters').removeClass('dropdown-menu');
   }
 
   // Filter dropdown
@@ -195,10 +195,10 @@ function stickyMenu() {
     if (windowsize < 768) {
       $j('.icon-menu').show();
     $j('.filters').addClass('dropdown-menu');
-      
+
     }
     else {
-      $j('.icon-menu').hide(); 
+      $j('.icon-menu').hide();
       $j('.filters').removeClass('dropdown-menu');
     }
   });
@@ -225,8 +225,8 @@ function bootstrapEvents() {
   $j('#social-profiles li a').tooltip();
   // share popover
   $j('#pop-share').popover({
-    animation:true, 
-    content:$j('#sharePopover').html(), 
+    animation:true,
+    content:$j('#sharePopover').html(),
     html:true,
     placement:'bottom',
     container: '#post-menu'
@@ -238,8 +238,8 @@ function smoothScrolling() {
 
   function initSmoothScroll() {
     $j("html").niceScroll({
-      scrollspeed: 60,
-      mousescrollstep: 60,
+      // scrollspeed: 60,
+      // mousescrollstep: 60,
       cursorwidth: 5,
       cursorborder: 0,
       cursorcolor: '#858585',
@@ -272,17 +272,17 @@ function parallaxEffects() {
     function extractUrl(input) {
       return input.replace(/"/g,"").replace(/url\(|\)$/ig, "");
     }
-    
+
     var img = new Image();
     var scrollTop;
-    
+
     var imgX, imgY, aspectRatio;
     var diffX, diffY;
     var headingHeight = $j('.head-content').height();
     var headerHeight = parseInt($j('.heading-bg').attr('data-height'));
 
     img.onload = function() {
-      
+
       // Header
       if ( $j('.centered').hasClass( "no-bg" ) ) {
         $j('.no-bg').css('margin-top', '0');
@@ -290,10 +290,10 @@ function parallaxEffects() {
 
       $j('#header .heading-bg').css({'top': '0px' });
       $j('#header .heading-bg').animate({ 'opacity' : 1},650,'easeInCubic');
-      
+
       $j('#header, #header .head-content').css({'height' : headerHeight});
-      
-      $j('#header .head-content').css({ 
+
+      $j('#header .head-content').css({
         'opacity' : 1-(scrollTop/(headerHeight-($j('#header .head-content').height()*2)+60)),
         'top' : ((headerHeight/2) - (headingHeight/2)) +10 +"px"
       });
@@ -301,24 +301,24 @@ function parallaxEffects() {
       //sticky menu
       stickyMenu();
     }
-    
-    img.src = extractUrl($j('#header .heading-bg').css('background-image')); 
-  
+
+    img.src = extractUrl($j('#header .heading-bg').css('background-image'));
+
     // Scroll effect
     $j(window).scroll(function(){
-      
+
       var scrollTop = $j(window).scrollTop();
       var headingHeight = $j('.head-content').height();
       var headerHeight = $j('#header').height();
 
       //if(!$j('body').hasClass('mobile') && navigator.userAgent.match(/iPad/i) == null){
 
-        $j('#header .heading-bg').transition({ y: $j(window).scrollTop()*-.2 },0);  
-        
-        $j('.centered').css({ 
+        $j('#header .heading-bg').transition({ y: $j(window).scrollTop()*-.2 },0);
+
+        $j('.centered').css({
           'opacity' : 1-(scrollTop/(headingHeight-($j('.centered').height()*2)+400))
         });
-        
+
         $j('#header .head-content').stop(true,true).transition({ y: $j(window).scrollTop()*-.14 },0);
 
         //hide elements to allow other parallax sections to work in webkit browsers
@@ -346,7 +346,7 @@ function parallaxEffects() {
       } else {
         $j('.sticky-menu').removeClass('affix');
         removeShadow();
-      }   
+      }
     });
   }
 
@@ -356,16 +356,16 @@ function parallaxEffects() {
     function extractUrl(input) {
       return input.replace(/"/g,"").replace(/url\(|\)$/ig, "");
     }
-    
+
     var img = new Image();
     var scrollTop;
-    
+
     var imgX, imgY, aspectRatio;
     var diffX, diffY;
     var postheaderHeight = parseInt($j('.featured-image').attr('data-height'));
 
     img.onload = function() {
-      
+
       $j('.featured-image').css({'top': '0px' });
       $j('.featured-image').animate({ 'opacity' : 1},650,'easeInCubic');
 
@@ -374,16 +374,16 @@ function parallaxEffects() {
       //sticky menu
       stickyMenu();
     }
-    
-    img.src = extractUrl($j('.featured-image').css('background-image')); 
-  
+
+    img.src = extractUrl($j('.featured-image').css('background-image'));
+
     // Scroll effect
     $j(window).scroll(function(){
-      
+
       var scrollTop = $j(window).scrollTop();
 
       //if(!$j('body').hasClass('mobile') && navigator.userAgent.match(/iPad/i) == null){
-        $j('.featured-image').transition({ y: $j(window).scrollTop()*-.2 },0);  
+        $j('.featured-image').transition({ y: $j(window).scrollTop()*-.2 },0);
       //}
 
       // sticky menu
@@ -402,7 +402,7 @@ function parallaxEffects() {
       } else {
         $j('.sticky-menu').removeClass('affix');
         removeShadow();
-      }       
+      }
     });
   }
 }
@@ -439,7 +439,7 @@ function misc() {
     'margin-top' : ((headerHeight/2) - (headingHeight/2)) +"px"
   })
 
-  stickyMenu(); 
+  stickyMenu();
 
   // back to to top click event
   $j('#go-up').click(function () {
