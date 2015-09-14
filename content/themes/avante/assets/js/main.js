@@ -240,19 +240,19 @@ function smoothScrolling() {
     $j("html").niceScroll({
       // scrollspeed: 60,
       // mousescrollstep: 60,
-      cursorwidth: 5,
-      cursorborder: 0,
-      cursorcolor: '#858585',
-      cursorborderradius: 6,
-      autohidemode: false,
-      horizrailenabled: false
+      // cursorwidth: 5,
+      // cursorborder: 0,
+      // cursorcolor: '#858585',
+      // cursorborderradius: 6,
+      // autohidemode: false,
+      // horizrailenabled: false
     });
   }
 
-  var smoothScroll = $j('body').attr('data-smooth-scroll');
-  if (smoothScroll == 1 ) {
-    initSmoothScroll();
-  }
+  // var smoothScroll = $j('body').attr('data-smooth-scroll');
+  // if (smoothScroll == 1 ) {
+  //   initSmoothScroll();
+  // }
 }
 
 function parallaxEffects() {

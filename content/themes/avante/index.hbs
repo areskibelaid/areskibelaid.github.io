@@ -24,22 +24,6 @@
 	{{! {{> links}}
 
 	<div class="container-wrap">
-		{{! Filters }}
-		<div id="filter-wrap" class="sticky-menu">
-			<div class="dropdown">
-				<a data-toggle="dropdown" class="icon-menu" href="#"></a>
-				<ul class="filters" role="menu">
-					<li><span>Filter posts by:</span></li>
-				  <li><a href="#" data-filter="*">all</a></li>
-				  <li><a href="#" data-filter=".tag-telefony">telefony</a></li>
-				  <li><a href="#" data-filter=".tag-web">web</a></li>
-				  <li><a href="#" data-filter=".tag-python">python</a></li>
-				  <li><a href="#" data-filter=".tag-go">go</a></li>
-				  <li><a href="#" data-filter=".tag-docker">docker</a></li>
-				  <li><a href="#" data-filter=".tag-photo">photo</a></li>
-				</ul>
-			</div>
-		</div>
 
 		<div class="container">
 			<div class="row">
@@ -47,23 +31,20 @@
 					{{! Our Loop }}
 					{{#foreach posts}}
 
-							<article class="{{post_class}}">
-							  <div class="entry">
-							    <a href="{{url}}" class="post-item"><h4>{{{title}}} <span class="post-time">({{date published_at format="MMMM DD, YYYY"}}</span>)</h4></a>
-								{{excerpt words="30"}}
-
+							  <div>
 							    <a href="{{url}}" class="post-item">
-							      <div class="featured-img">
-							        {{content words="0"}}
-							      </div>
-
 							      <div class="caption">
-							      	<h3>{{{title}}}</h3>
-							      	<span class="post-time">{{date published_at}}</span>
+							      	<h3>{{{title}}} - <span class="post-time">{{date published_at format="MMM DD"}}</span></h3>
 							      </div>
 							    </a>
+
+							    {{excerpt words="50"}} ...
+							    <a href="{{url}}"> Continue reading.</a>
+								<br/>
+
 						      </div>
-							</article>
+
+						      <br/>
 
 					{{/foreach}}
 				</main>
